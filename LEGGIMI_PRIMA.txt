@@ -1,0 +1,69 @@
+DEVFORGE AI — AVVIO SU PC
+
+1) Installa Node.js 24.x sul PC.
+2) Estrai la cartella DEVFORGE-AI.
+3) Apri PowerShell dentro la cartella.
+4) Esegui:
+
+   npm install
+
+5) Crea il file .env copiando .env.example.
+6) Apri .env e inserisci:
+
+   TELEGRAM_BOT_TOKEN=il_token_del_bot
+   TELEGRAM_WEBHOOK_SECRET=una_stringa_segreta_a_tua_scelta
+   GEMINI_API_KEY=la_tua_chiave_gemini
+
+   Per il momento TELEGRAM_WEBHOOK_URL può restare vuoto.
+   Le variabili Redis servono quando collegherai il progetto a Vercel.
+
+7) Controlla il codice:
+
+   npm run typecheck
+
+8) Avvia DEVFORGE AI in locale:
+
+   npm run dev
+
+Se parte correttamente vedrai:
+
+   🤖 DEVFORGE AI avviato correttamente!
+   📱 In attesa di messaggi Telegram...
+
+TEST CONSIGLIATO
+
+Scrivi al bot:
+
+   Crea un'app web chiamata Note Veloci. Deve permettere di creare, modificare e cancellare note.
+
+Poi puoi chiedere:
+
+   Aggiungi a Note Veloci un pulsante per creare una nuova nota e permettere di inserire il titolo e il contenuto della nota.
+
+La modifica riuscita deve mostrare:
+
+   📦 BACKUP CREATO
+   🔢 Versione: 0.2.0
+
+GITHUB
+
+Prima di fare push, assicurati che .env NON venga aggiunto.
+È già escluso da .gitignore.
+
+VERCEL
+
+1) Carica il repository GitHub su Vercel.
+2) Imposta Node.js 24.x se richiesto.
+3) Aggiungi le variabili d'ambiente.
+4) Collega un Redis dal Vercel Marketplace per la memoria persistente.
+5) Imposta TELEGRAM_WEBHOOK_URL come:
+
+   https://TUO-PROGETTO.vercel.app/api/telegram
+
+6) Dopo il deploy, esegui sul PC:
+
+   npm run set-webhook
+
+IMPORTANTE
+
+Non eseguire il bot locale con npm run dev mentre vuoi usare il webhook Vercel per lo stesso bot: il comando locale rimuove il webhook e passa al polling.
