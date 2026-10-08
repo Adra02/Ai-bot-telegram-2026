@@ -1,7 +1,6 @@
 {
   "functions": {
     "api/telegram.ts": {
-      "runtime": "nodejs24.x",
       "maxDuration": 60
     }
   }
